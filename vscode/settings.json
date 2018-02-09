@@ -1,0 +1,18 @@
+{
+    "explorer.confirmDragAndDrop": false,
+    "window.zoomLevel": -1,
+    "workbench.iconTheme": "vscode-icons",
+    "sublimeTextKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "editor.formatOnPaste": true,
+    "workbench.startupEditor": "welcomePage",
+    "workbench.colorTheme": "Solarized Dark",
+    "workbench.panel.location": "bottom",
+    "editor.minimap.enabled": false,
+    "window.menuBarVisibility": "toggle",
+    "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
+    "journal.base": "/home/hammas/Dropbox/note-vscode",
+    "workbench.startupEditor": "newUntitledFile",
+    
+}

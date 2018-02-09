@@ -1,0 +1,85 @@
+[{
+        "link": {
+            "~/.fonts": {
+                "force": true
+            }
+        }
+    },
+    {
+        "link": {
+            "~/.config/dunst/dunstrc": {
+                "path": "dunst/dunstrc",
+                "force": true
+            }
+        },
+        "link": {
+            "~/.tmux.conf": {
+                "force": true
+            }
+        }
+    },
+    {
+        "link": {
+            "~/.Xresources": {
+                "path": "x/Xresources",
+                "force": true
+            },
+            "~/.xinitrc": {
+                "path": "x/xinitrc",
+                "force": true
+            }
+        }
+    },
+    {
+        "link": {
+            "~/.config/compton.conf": {
+                "path": "compton/compton.conf",
+                "force": true
+            }
+        }
+    },
+    {
+        "link": {
+            "~/.zprezto": {
+                "path": "zsh/zprezto",
+                "force": true
+            },
+            "~/.zshrc": {
+                "path": "zsh/zshrc",
+                "force": true
+            }
+        }
+    },
+    {
+        "link": {
+            "~/.i3": {
+                "force": true
+            }
+        }
+    },
+    {
+        "link": {
+            "/home/hammas/.config/Code/User/settings.json": {
+                "path": "vscode/settings.json",
+                "force": true
+            },
+            "/home/hammas/.config/Code/User/keybindings.json": {
+                "path": "vscode/keybindings.json",
+                "force": true
+            }
+        }
+    },
+    {
+        "clean": [
+            "~"
+        ]
+    },
+    {
+        "shell": [
+            [
+                "git submodule update --init --recursive",
+                "Installing submodules"
+            ]
+        ]
+    }
+]
