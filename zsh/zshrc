@@ -43,3 +43,4 @@ export PATH="/home/hammas/miniconda3/bin:$PATH"
 
 zstyle ':completion::complete:*' use-cache 1
 
+alias transtobahasa="trans -b -t 'id'"

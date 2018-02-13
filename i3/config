@@ -95,6 +95,7 @@ bindsym $mod+Shift+Tab workspace prev
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+floating_maximum_size 1280 x 720
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -175,7 +176,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+        # These binrdings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.
@@ -191,7 +192,13 @@ mode "resize" {
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
-
+        bindsym Shift+Left resize shrink width 20 px
+        bindsym Shift+Down resize grow height 20 px
+        bindsym Shift+Up resize shrink height 20 px
+        bindsym Shift+Right resize grow width 20 px
+        bindsym s resize grow width 1500
+        bindsym s resize grow height 1500
+        bindsym c move position center
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -275,10 +282,10 @@ exec --no-startup-id nm-applet
 
 focus_follows_mouse no
 
-exec_always compton
+# exec_always compton
 
 #Remove title bar of every window
-for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel 2
 
 gaps inner 10
 smart_gaps on
@@ -316,3 +323,6 @@ exec --no-startup-id feh --bg-scale /home/hammas/Dropbox/wallpaper/storm-trooper
 #assign [class="Slack"] $WS8
 #assign [class="Thunderbird"] $WS9
 
+# force gtk recordmydesktop to float
+for_window[class="Kazam"] floating enable; focus mode_toggle
+for_window[class="vlc"] floating enable; focus mode_toggle
