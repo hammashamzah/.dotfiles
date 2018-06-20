@@ -95,7 +95,9 @@ bindsym $mod+Shift+Tab workspace prev
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-floating_maximum_size 1280 x 720
+
+#uncomment for screencasting
+#floating_maximum_size 1280 x 720
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -142,7 +144,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+w sticky toggle
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -196,8 +198,8 @@ mode "resize" {
         bindsym Shift+Down resize grow height 20 px
         bindsym Shift+Up resize shrink height 20 px
         bindsym Shift+Right resize grow width 20 px
-        bindsym s resize grow width 1500
-        bindsym s resize grow height 1500
+        bindsym s resize set 1280 px 720 px
+        bindsym v resize set 428 px 271 px move position 1384 px 741 px
         bindsym c move position center
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -253,30 +255,33 @@ bindsym $mod+r mode "resize"
 
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+# debug: pactl list | grep -i -e Sink  
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 2 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 2 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 2 toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec exec xbacklight -dec 10
-
-# Pomodoro controls
-#bindsym $mod+F9 exec "python ~/scripts/i3-gnome-pomodoro/pomodoro-client.py start"
-#bindsym $mod+F10 exec "python ~/scripts/i3-gnome-pomodoro/pomodoro-client.py toggle"
-#bindsym $mod+F11 exec "python ~/scripts/i3-gnome-pomodoro/pomodoro-client.py skip"
-#bindsym $mod+F12 exec "python ~/scripts/i3-gnome-pomodoro/pomodoro-client.py stop"
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86Display exec arandr
 
 
-# Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+# modify special buttons map (key_keyboard, key_favorites) by modifying udev
+# reference: https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_T470
 
+#launch2 -> keyboard
+bindcode 157 exec /home/hammas/.dotfiles/scripts/toggletouchpad.sh # toggle touchpad
+
+#launch1-> bookmark
+bindcode 156 exec pavucontrol
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# later
+# bindsym XF86Tools
 
 exec --no-startup-id nm-applet
 
@@ -313,9 +318,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
-exec --no-startup-id feh --bg-scale /home/hammas/Dropbox/wallpaper/storm-trooper.png
+exec --no-startup-id feh --bg-scale /home/hammas/wallpaper-data.png
 
-#exec --no-startup-id xinput disable 12
+# exec --no-startup-id xinput disable 12
 
 ##ASSIGNING WORKSPACE
 

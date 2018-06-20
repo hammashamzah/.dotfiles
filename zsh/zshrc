@@ -38,9 +38,10 @@ export LD_LIBRARY_PATH="${HOME}/usr/lib:${LD_LIBRARY_PATH}"
 export PATH="${HOME}/usr/bin:${PATH}"
 export PATH=~/.npm-global/bin:$PATH
 export PATH="/home/hammas/scripts:$PATH"
-# added by Miniconda3 installer
-export PATH="/home/hammas/miniconda3/bin:$PATH"
 
 zstyle ':completion::complete:*' use-cache 1
 
 alias transtobahasa="trans -b -t 'id'"
+source `which activate.sh`
+
+alias lst="tree -L 2"
